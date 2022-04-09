@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 import { distributeToken, getRewarded, balanceOf } from "../utils/contract";
 import Error from "./Error";
@@ -10,8 +10,14 @@ function Input() {
   const [error, setError] = useState({ err: "", excelErr: "", input: "" });
   const [rewarded, setRewarded] = useState([]);
 
-  getRewarded().then((res) => setRewarded(res));
-
+  export const Rewards = () => {
+     getRewarded().then((res) => setRewarded(res));
+  }
+  
+  useEffect(() => {
+    Rewards()
+  }, [])
+  
   const handleDistributeSubmit = (e) => {
     e.preventDefault();
 
