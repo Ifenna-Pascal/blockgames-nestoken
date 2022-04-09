@@ -9,7 +9,7 @@
         text-gray-700
         bg-white bg-clip-padding
         border border-solid border-gray-300
-        rounded-xl
+        rounded-sm
         transition
         ease-in-out
         focus:text-gray-800 focus:bg-white focus:border-blue-600 focus:outline-none
@@ -17,7 +17,7 @@
 }
 
 .button {
-  @apply py-3 px-6 my-3 rounded-full border-none text-white bg-blue-800 font-semibold;
+  @apply py-3 px-3 my-2 rounded-full border-none text-sm text-white bg-blue-800 font-semibold;
 }
 
 @tailwind utilities;
