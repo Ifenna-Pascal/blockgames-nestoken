@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { HandleConnect } from "../utils/contract";
 
-const Nav = () => {
+const Nav = ({rewards}) => {
   const [account, setAccount] = useState("");
   HandleConnect().then((token) => {
     setAccount(token);
-    window.location.reload()
+    rewards();
   });
 
   return (
