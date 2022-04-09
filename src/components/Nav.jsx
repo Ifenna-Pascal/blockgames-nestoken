@@ -5,7 +5,6 @@ const Nav = () => {
   const [account, setAccount] = useState("");
   HandleConnect().then((token) => {
     setAccount(token);
-    window.location.reload()
   });
 
   return (
