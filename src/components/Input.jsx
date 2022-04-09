@@ -151,7 +151,7 @@ function Input() {
             </tr>
           </thead>
           <tbody>
-            {rewarded.map((x, i) => (
+            {rewarded && rewarded.map((x, i) => (
               <tr
                 key={i}
                 className="bg-white border-b hover:cursor-pointer hover:bg-gray-200 "
