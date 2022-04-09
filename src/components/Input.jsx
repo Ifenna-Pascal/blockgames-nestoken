@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import { distributeToken, getRewarded, balanceOf } from "../utils/contract";
 import Error from "./Error";
+import Nav './Nav';
 
 function Input() {
   const [excelFile, setExcelFile] = useState(null);
@@ -10,7 +11,13 @@ function Input() {
   const [error, setError] = useState({ err: "", excelErr: "", input: "" });
   const [rewarded, setRewarded] = useState([]);
 
-  getRewarded().then((res) => setRewarded(res));
+  const Rewards = () => {
+    getRewarded().then((res) => setRewarded(res));
+  }
+  
+  useEffect(() => {
+    Rewards()
+  },[])
 
   const handleDistributeSubmit = (e) => {
     e.preventDefault();
@@ -98,6 +105,8 @@ function Input() {
   };
 
   return (
+    <div>
+    <Nav rewards = {Rewards} />
     <div className="flex flex-col max-w-2xl mx-auto overflow-auto px-4">
       {bal && (
         <h2 className="text-center text-2xl my-2 text-blue-900 ">
@@ -172,6 +181,7 @@ function Input() {
         </table>
       </div>
     </div>
+</div>
   );
 }
 
